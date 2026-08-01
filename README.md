@@ -103,7 +103,7 @@ time, Option B works immediately with what's already in this repo.
 ```bash
 # 1. Fork this repo on GitHub (use the Fork button), then clone YOUR fork:
 git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>/Wk5_6
+cd <repo-name>
 
 # 2. Create your working branch
 git checkout -b wk5-6-<your-student-id>
