@@ -1,0 +1,43 @@
+name: Autograde exercises
+
+# Runs automatically whenever a student pushes to their fork/branch or opens
+# a Pull Request. Gives instant pass/fail feedback on both problems without
+# the lecturer needing to be present — this is the safety net for the
+# self-study weeks.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  astar-tests:
+    name: A* grid search tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run A* test suite
+        run: |
+          cd 01_Informed_Search_A_Star/starter_code
+          pytest test_astar_grid.py -v
+
+  csp-tests:
+    name: CSP backtracking tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run CSP test suite
+        run: |
+          cd 02_CSP/starter_code
+          pytest test_csp_map_coloring.py -v
